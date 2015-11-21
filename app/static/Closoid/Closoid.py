@@ -42,7 +42,7 @@ def Closoid(tau):
 	n =[1,1]
 	n[0] = F_k_x*A*math.sqrt(2*tau)
 	n[1] = F_k_y*A*tau*math.sqrt(2*tau)
-	return n 
+	return n
 def Formula(x):
 	point = Closoid((math.pi/60)*x)
 	n = [point[0]*100,point[1]*100]

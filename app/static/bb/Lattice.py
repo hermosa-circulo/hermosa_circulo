@@ -10,7 +10,7 @@ def delete_all():
 		bpy.data.meshes.remove(item)
 	for item in bpy.data.materials:
 		bpy.data.materials.remove(item)
-def createLattice(scene,argvs):	
+def createLattice(scene,argvs):
 	lattice = bpy.data.lattices.new("Lattice")
 	lattice_ob = bpy.data.objects.new("LatticeObj",lattice)
 	lattice_ob.location = (0.55,-0.63,0.5)
@@ -22,7 +22,7 @@ def createLattice(scene,argvs):
 	scene.objects.link(lattice_ob)
 	scene.objects.active = lattice_ob
 	scene.update()
-	
+
 	lattice.interpolation_type_u = 'KEY_LINEAR'
 	lattice.interpolation_type_v = 'KEY_CARDINAL'
 	lattice.interpolation_type_w = 'KEY_BSPLINE'
@@ -45,7 +45,7 @@ def createLattice(scene,argvs):
 		for k in range(3):
 			pt.co_deform[k] = points[n][k]
 			#pass
-	"""2cool"""	
+	"""2cool"""
 	lattice_2 = bpy.data.lattices.new("Lattice2")
 	lattice_ob_2 = bpy.data.objects.new("LatticeObj2",lattice_2)
 	lattice_ob_2.location = (0.55,0.5,0.5)
@@ -74,7 +74,7 @@ def createLattice(scene,argvs):
 		for k in range(3):
 			pt.co_deform[k] = points[n][k]
 			#pass
-	
+
 	return lattice_ob
 
 def printOBJ():
@@ -121,12 +121,12 @@ def printOBJ():
 				fp.write("\n")
 	fp.close()
 	return 0
-		
-		
+
+
 
 if __name__ == "__main__":
 	argvs = sys.argv
-	LOAD_FILE = "/var/www/html/mrdoob-three.js/bb/boobs_dis.obj"
+	LOAD_FILE = os.path.join(os.getcwd(),'boobs_dis.obj')
 	delete_all()
 	bpy.ops.import_scene.obj(filepath= LOAD_FILE)
 	scene = bpy.context.scene
@@ -144,4 +144,4 @@ if __name__ == "__main__":
 	#bpy.ops.object.editmode_toggles()
 	#bpy.ops.object.mode_set(mode='EDIT')
 	#bpy.ops.translate(value=(0,0,2),constraint_axis=(False,False,False),constraint_orientation='GLOBAL',mirror = False,proportional='DISABLED',proportional_edit_falloff='SMOOTH',proportional_size=1)
-	
+
