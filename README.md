@@ -6,6 +6,7 @@
 
 ## Description
 3DモデルをIGAで最適化  
+djangoを使って書いてます([使いかた](http://docs.djangoproject.jp/en/latest/intro/tutorial01.html))
 
 ## フォルダ構成
 ###app
