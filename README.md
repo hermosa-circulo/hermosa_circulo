@@ -30,7 +30,7 @@ djangoプロジェクト全体で使うhtmlテンプレート
 ---
 djangoプロジェクト全体で使う静的ファイル  
 ## Requirement
-    python 2.7, 3.4  
+    python 2.7 or 3.4  
 
 ## Author
 [m-masataka](https://github.com/m-masataka)  
