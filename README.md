@@ -16,15 +16,16 @@ python 2.7, 3.4
 
 ## Install librarys
 依存しているライブラリを一括でインストール
-git clone https://github.com/m-masataka/oppai_iga.git
-cd oppai_iga
-pip install -r requirements.txt
+
+$git clone https://github.com/m-masataka/oppai_iga.git
+$cd oppai_iga
+$pip install -r requirements.txt
 
 ## update requirements.txt
 依存しているライブラリの情報を更新
-pip install pip-tools
-pip-compile requirements.in
+$pip install pip-tools
+$pip-compile requirements.in
 
 ## Author
-[tcnksm](https://github.com/m-masataka)
-[tcnksm](https://github.com/bandoshintaro)
+[m-masataka](https://github.com/m-masataka)
+[bandoshintaro](https://github.com/bandoshintaro)
