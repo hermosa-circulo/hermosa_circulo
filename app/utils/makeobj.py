@@ -1,5 +1,5 @@
 import math
-import Vertex
+from app.utils import Vertex
 def VectorSubstruction(v1,v2):
     ans = [0 for i in range(len(v1))]
     for i in range(len(v1)):
@@ -17,9 +17,8 @@ def returnV(wheel_radius,begining_point,closoid_number,point_num,breast_wide):
         [[0,0,10], [10,0,10],[10,10,10],[0,10,10]]]
     v = Vertex.makeV(wheel_radius,begining_point,closoid_number,point_num,breast_wide)
     center = [0,0,0]
-
-    
     return v
+
 def returnVN(v):
     vn =[[[0 for i in range(3)]for j in range(len(v[0]))]for k in range(len(v)-1)]
     for i in range(len(v)-1):
@@ -32,13 +31,9 @@ def returnVN(v):
                 a = VectorSubstruction(v[i][j],v[i+1][j])
                 b = VectorSubstruction(v[i][j],v[i][j+1])
                 vn[i][j] = CrossProduct(a,b)
-    
-    
     return vn
-           
-        
-	
-def returnF(v,vn): 
+
+def returnF(v,vn):
     f = [["" for i in range(len(vn[0]))]for i in range(len(vn))]
     for i in range(len(v)-1):
         vnum0 = i*len(v[0])+1
@@ -86,7 +81,7 @@ def make(wheel_radius,begining_point,closoid_number,point_num,breast_wide):
     fcap = CapF(v,vn,1)
     vncap_first = CapV(v,0)
     fcap_first = CapF(v,vn,0)
-    objfile_str = "" 
+    objfile_str = ""
     objfile_str += "g cube\n"
     for i in v:
         for j in i:
@@ -97,8 +92,8 @@ def make(wheel_radius,begining_point,closoid_number,point_num,breast_wide):
     objfile_str += "vn "+str(vncap[0])+" "+str(vncap[1])+" "+str(vncap[2])+"\n"
     objfile_str += "vn "+str(vncap_first[0])+" "+str(vncap_first[1])+" "+str(vncap_first[2])+"\n"
     for i in f:
-    	for j in i:
-	        objfile_str += str(j)
+        for j in i:
+            objfile_str += str(j)
     objfile_str += fcap
     objfile_str += fcap_first
     '''
@@ -113,8 +108,8 @@ def make(wheel_radius,begining_point,closoid_number,point_num,breast_wide):
     file.write("vn "+str(vncap[0])+" "+str(vncap[1])+" "+str(vncap[2])+"\n")
     file.write("vn "+str(vncap_first[0])+" "+str(vncap_first[1])+" "+str(vncap_first[2])+"\n")
     for i in f:
-    	for j in i:
-	        file.write(j)
+        for j in i:
+            file.write(j)
     file.write(fcap)
     file.write(fcap_first)
     file.close()

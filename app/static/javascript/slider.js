@@ -18,7 +18,7 @@ for(var i = 0; i<number ;i++){
 var i= 0;
 var set_value = function(){
 	input[i].style.left = (value[i] -input[i].clientWidth/2) + 'px';
-	//console.log(value[i]);	
+	//console.log(value[i]);
 	output[i].value = value[i];
 };
 set_value();
