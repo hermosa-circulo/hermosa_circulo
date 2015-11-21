@@ -3,7 +3,7 @@ from app.utils import Closoid
 def Mapping(c,v):
     for i in range(len(v)):
         for j in range(len(v[0])):
-                v[i][j] = v[i][j] + c[j]
+                v[i][j] += c[j]
     return v
 def ring(r,point_num,center):
     z = 0
@@ -83,18 +83,16 @@ def makeV(wheel_radius,begining_point,begin,point_num,breast_wide):
     flag = 1
     vertex=[]
     if flag ==1:
-        #print parameter.closoid_number
+
         first_point = Closoid.Closoid((math.pi/200)*(0+begining_point))
         #first_point = [0,0]
-        #print first_point
-        #print parameter.parameter_num
+
         first_p2 = Closoid.Closoid((math.pi/200)*(begin+begining_point))
         #first_p2 = [0,0]
 
         for i in range(150):
             r = makeR(i,wheel_radius,breast_wide)
             point = Closoid.Closoid((math.pi/200)*(i+begining_point))
-        #point = [0,0.01*i]
         center = [0,-(point[0]-first_point[0]-first_p2[0])*100,(point[1]-first_point[1]-first_p2[1])*100]
         #center = [0,0,i*5]
         if begin < i and r > 0.5:

@@ -3,10 +3,10 @@
 {% block extraheader%}
 <!--
 <link rel="stylesheet" type="text/css" href = "{{ STATIC_URL }}css/slider.css" media="all">
-<script type = "text/javascript" src = "{{ STATIC_URL }}javascript/test.js"></script>
+<script type = "text/javascript" src = "{{ STATIC_URL }}js/test.js"></script>
 -->
 <link rel="stylesheet" type="text/css" href = "{{ STATIC_URL }}css/ui-slider.css" media="all">
-<script type = "text/javascript" src = "{{ STATIC_URL }}javascript/ui-slider.js"></script>
+<script type = "text/javascript" src = "{{ STATIC_URL }}js/ui-slider.js"></script>
 {% endblock %}
 
 {% block content %}
@@ -39,7 +39,7 @@
 </script>
 -->
 
-<form action = "/boobs_designer/update/" method = "post">
+<form action = {% url 'update' %} method = "post">
 {% csrf_token %}
     <ul>
         <li style = "float:left;">
@@ -64,7 +64,7 @@
 </form>
 
     <!--
-    <script type = "text/javascript" src = "{{ STATIC_URL }}javascript/slider.js"></script>
+    <script type = "text/javascript" src = "{{ STATIC_URL }}js/slider.js"></script>
     <form class = "js-slider-form" name = "slider_form" onsubmit = "return false;">
         <input type = "text" name = "slider_out" id = "slider-out-1" value = "0">
         <div id = "slider_1" name = "slider_style" class = "js-slider">
@@ -136,7 +136,7 @@
     var object = new THREE.Mesh();
     var loader = new THREE.OBJLoader();
 
-    loader.load( '{{ STATIC_URL }}Closoid/model2.obj', function ( object ) {
+    loader.load( '{{ STATIC_URL }}model2.obj', function ( object ) {
         scene.add(object);
         object.position.set(-30,0,0);
         object.rotation.y = -0.5/Math.PI;
@@ -148,7 +148,7 @@
         animate();
     });
 
-    loader.load( '{{ STATIC_URL }}Closoid/model2.obj', function ( object ) {
+    loader.load( '{{ STATIC_URL }}model2.obj', function ( object ) {
         scene.add(object);
         object.position.set(30,0,0);
         object.rotation.y = 0.5/Math.PI;
