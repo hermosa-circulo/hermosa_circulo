@@ -20,19 +20,15 @@ httpリクエストを受けてレスポンスを返す処理を書くファイ�
 webアプリで使うhtmlテンプレート  
 ####static
 webアプリで使う静的ファイル  
----
 ###oppai_iga
 ---
 djangoプロジェクト全体の設定ファイルがおいてある  
----
 ###templates
 ---
 djangoプロジェクト全体で使うhtmlテンプレート  
----
 ###static
 ---
 djangoプロジェクト全体で使う静的ファイル  
----
 ## Requirement
     python 2.7, 3.4  
 
