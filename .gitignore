@@ -1,4 +1,7 @@
 *~
 *.swp
+app/__pycache__
+app/**/__pycache__
+oppai_iga/**/__pycache__
 db.sqlite3
 .DS_Store

@@ -28,7 +28,7 @@ def ring(r,point_num,center):
             x = -x
             y = -y
         else:
-            x = x 
+            x = x
             y = -y
         ver.append([x,y,z])
     ver = Mapping(center,ver)
@@ -44,7 +44,7 @@ def pullV(V,point_num):
 		pull_len= 1*math.pow(0.1,i)
 		while len(stock)<point_num:
 			min = 100000
-			num = 0	
+			num = 0
 			for j in range(len(V[i])):
 				distance=50-V[i][j][1]
 				if distance < min and not j in stock:
@@ -77,11 +77,11 @@ def pullV(V,point_num):
 			V[i][stock[j]][1]=V[i][stock[j]][1]+vs[count]
 			print vs[count]
 			if j%2==1:
-				count=count-1		
+				count=count-1
 		#	V[0][j][1]=V[0][j][1]+2
     return V
 def makeR(x,r,p):
-    x = x*p 
+    x = x*p
     if r > x:
 	y  = math.sqrt(math.pow(r,2) - math.pow(x,2))
     else:
@@ -90,7 +90,7 @@ def makeR(x,r,p):
 def makeV(wheel_radius,begining_point,begin,point_num,breast_wide):
     flag = 1
     vertex=[]
-    if flag ==1:	
+    if flag ==1:
 	#print parameter.closoid_number
 	first_point = Closoid.Closoid((math.pi/200)*(0+begining_point))
     	#first_point = [0,0]
@@ -98,14 +98,14 @@ def makeV(wheel_radius,begining_point,begin,point_num,breast_wide):
     	#print parameter.parameter_num
     	first_p2 = Closoid.Closoid((math.pi/200)*(begin+begining_point))
     	#first_p2 = [0,0]
-    
+
     	for i in range(150):
         	r = makeR(i,wheel_radius,breast_wide)
-        	point = Closoid.Closoid((math.pi/200)*(i+begining_point)) 
-		#point = [0,0.01*i]	
+        	point = Closoid.Closoid((math.pi/200)*(i+begining_point))
+		#point = [0,0.01*i]
 		center = [0,-(point[0]-first_point[0]-first_p2[0])*100,(point[1]-first_point[1]-first_p2[1])*100]
 		#center = [0,0,i*5]
-		if begin < i and r > 0.5: 
+		if begin < i and r > 0.5:
 			vertex.append(ring(r,point_num,center))
 	#vertex = pullV(vertex,point_num)
     else:
@@ -117,6 +117,6 @@ def makeV(wheel_radius,begining_point,begin,point_num,breast_wide):
 		center = [30,10,i*1]
 		if begin < i and r>0.5:
 			vertex.append(ring(r,point_num,center))
-	vertex = pullV(vertex,point_num)			 
+	vertex = pullV(vertex,point_num)
     return vertex
 

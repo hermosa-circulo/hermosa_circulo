@@ -11,36 +11,6 @@
 
 {% block content %}
 
-<script type ="text/javascript">
-$(document).ready(function(){
-    $('#send').click(function(){
-        var data = {
-                wheel_radius : $('#jquery-ui-slider-value-1').val(),
-                begining_point : $('#jquery-ui-slider-value-2').val(),
-                begin : $('#jquery-ui-slider-value-3').val(),
-                point_num : $('#jquery-ui-slider-value-4').val(),
-                breast_wide : $('#jquery-ui-slider-value-5').val(),
-            };
-        document.getElementById("loading_status").innerHTML = "<img src = '{{ STATIC_URL }}img/loading.gif' width = '40' height='40' >";
-        $.ajax({
-            type: 'POST',
-            url: '{{ STATIC_URL }}Closoid/test.cgi',
-            data: data,
-            success: function(data,dataType){
-                alert(data);
-                //document.location = "http://ec2-54-148-249-100.us-west-2.compute.amazonaws.com/mrdoob-three.js/index.html";
-                document.location = "{% url 'index' %}";
-            },
-            error: function(XMLHttpRequest, textStatus, errorThrowm)
-            {
-                alert('Error ' +errorThrown);
-            }
-        });
-        return false;
-    });
-});
-</script>
-
 
 <!--
 <button onclick = "updateProfile()" type = "button" > Update</button>
@@ -68,9 +38,9 @@ $(document).ready(function(){
     }
 </script>
 -->
-<!--
-<form action = "{{ STATIC_URL }}Closoid/test.cgi" method = "post">
--->
+
+<form action = "/boobs_designer/update/" method = "post">
+{% csrf_token %}
     <ul>
         <li style = "float:left;">
             <p>おっぱいの大きさ<input type="text"name = "wheel_radius" id = "jquery-ui-slider-value-1"/></p>
@@ -88,13 +58,10 @@ $(document).ready(function(){
             <p style = "visibility: hidden;">begining_point<input type="text"name = "begining_point" id = "jquery-ui-slider-value-2"/></p>
             <div style = "visibility: hidden;"id = "jquery-ui-slider-2"></div>
 
-            <input class = "btn btn-primary" id = "send" value = "SUBMIT" type = "submit"/>
+            <input type = "submit" class = "btn btn-primary" id = "send" value = "SUBMIT"/>
             <a id ="loading_status"></a>
         </li>
-    <!--
-    <p><input type = "submit" name ="submit" />fdasf</p>
-    </form>
-    -->
+</form>
 
     <!--
     <script type = "text/javascript" src = "{{ STATIC_URL }}javascript/slider.js"></script>

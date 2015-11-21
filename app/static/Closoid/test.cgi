@@ -24,7 +24,7 @@ point_num = int(data["point_num"].value)
 breast_wide = 1 - float(data["breast_wide"].value)
 ret = makeobj.make(wheel_radius,begining_point,begin,point_num,breast_wide)
 
-file = open('model2.obj','w')
+file = open(STATIC_URL,'model2.obj'),'w')
 file.write(ret)
 file.close()
 print ret;
