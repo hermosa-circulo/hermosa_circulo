@@ -12,13 +12,13 @@
 ###app
 ---
 webアプリ本体    
-####views.py
+####/views.py
 httpリクエストを受けてレスポンスを返す処理を書くファイル  
-####utils
+####/utils
 3Dモデリングの更新に使っている関数をとりあえずこの中に入れた  
-####templates
+####/templates
 webアプリで使うhtmlテンプレート  
-####static
+####/static
 webアプリで使う静的ファイル  
 ###oppai_iga
 ---
