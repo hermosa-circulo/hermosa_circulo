@@ -3,7 +3,7 @@ from app.utils import Closoid
 def Mapping(c,v):
     for i in range(len(v)):
         for j in range(len(v[0])):
-                v[i][j] += c[j]
+                v[i][j] = v[i][j] + c[j]
     return v
 def ring(r,point_num,center):
     z = 0
