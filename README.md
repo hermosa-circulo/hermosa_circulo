@@ -105,8 +105,9 @@ pipおよびpythonのライブラリをインストール
     $sudo yum install -y python-pip && sudo pip install pip --upgrade
     $sudo pip install -r /var/service/oppai_iga/requirements.txt
 
-firewalldのhttpsのポートを開ける  
+firewalldのhttp,httpsのポートを開ける  
 
+    $sudo firewall-cmd --add-service=http --zone=public --permanent
     $sudo firewall-cmd --add-service=https --zone=public --permanent
     $sudo systemctl restart firewalld
     $sudo systemctl enable firewalld
