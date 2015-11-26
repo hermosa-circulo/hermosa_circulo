@@ -10,7 +10,6 @@ djangoを使って書いてます([使いかた](http://docs.djangoproject.jp/en
 
 ## フォルダ構成
 ###app
----
 webアプリ本体  
 ####/views.py
 httpリクエストを受けてレスポンスを返す処理を書くファイル  
@@ -21,13 +20,13 @@ webアプリで使うhtmlテンプレート
 ####/static
 webアプリで使う静的ファイル  
 ###oppai_iga
----
+
 djangoプロジェクト全体の設定ファイルがおいてある  
 ###templates
----
+
 djangoプロジェクト全体で使うhtmlテンプレート  
 ###static
----
+
 djangoプロジェクト全体で使う静的ファイル  
 ## Requirement
     python 2.7 or 3.4  
@@ -57,13 +56,13 @@ mod_wsgiの設定ファイルを作成
     $sudo sh -c "cat << '_EOT_' > /etc/httpd/conf.modules.d/10-wsgi.conf
     LoadModule wsgi_module modules/mod_wsgi.so
 
-    WSGIScriptAlias / /var/service/hogehoge/hogehoge/wsgi.py
-    WSGIDaemonProcess hogehoge user=apache group=apache python-path=/var/service/hogehoge/hogehoge:/usr/lib/python2.7/site-packages
-    WSGIProcessGroup hogehoge
+    WSGIScriptAlias / /var/service/oppai_iga/oppai_iga/wsgi.py
+    WSGIDaemonProcess oppai_iga user=apache group=apache python-path=/var/service/oppai_iga:/usr/lib/python2.7/site-packages
+    WSGIProcessGroup oppai_iga
     WSGISocketPrefix run/wsgi
-    Alias /static/ /var/service/hogehoge/hogehoge/static/
+    Alias /static/ /var/service/oppai_iga/static/
 
-    <Directory /var/service/hogehoge/hogehoge/hogehoge>
+    <Directory /var/service/oppai_iga/oppai_iga>
         <Files wsgi.py>
             <IfVersion < 2.4>
                 Allow from all
@@ -74,7 +73,7 @@ mod_wsgiの設定ファイルを作成
         </Files>
     </Directory>
 
-    <Directory /var/service/hogehoge/hogehoge/static>
+    <Directory /var/service/oppai_iga/static>
         <IfVersion < 2.4>
             Allow from all
         </IfVersion>
@@ -87,11 +86,11 @@ mod_wsgiの設定ファイルを作成
 プログラムのソースコードをgit clone  
 
     $sudo mkdir /var/service
-    $sudo git clone hogehoge
+    $sudo git clone https://github.com/m-masataka/oppai_iga.git /var/service/oppai_iga
 
 権限を設定
 
-    $sudo chown apache:apache /var/service/hoge -R
+    $sudo chown apache:apache /var/service/oppai_iga -R
 
 SELinuxを無効化
 
@@ -104,7 +103,7 @@ SELinuxを無効化
 pipおよびpythonのライブラリをインストール  
 
     $sudo yum install -y python-pip && sudo pip install pip --upgrade
-    $sudo pip install -r /var/service/hoge/requirements.txt
+    $sudo pip install -r /var/service/oppai_iga/requirements.txt
 
 firewalldのhttpsのポートを開ける  
 
