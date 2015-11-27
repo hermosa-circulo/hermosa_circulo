@@ -1,10 +1,6 @@
 {% extends "base.html" %}
 
 {% block extraheader%}
-<!--
-<link rel="stylesheet" type="text/css" href = "{{ STATIC_URL }}css/slider.css" media="all">
-<script type = "text/javascript" src = "{{ STATIC_URL }}javascript/test.js"></script>
--->
 <link rel="stylesheet" type="text/css" href = "{{ STATIC_URL }}css/ui-slider.css" media="all">
 <script type = "text/javascript" src = "{{ STATIC_URL }}javascript/ui-slider.js"></script>
 {% endblock %}
@@ -63,27 +59,11 @@
         </li>
 </form>
 
-    <!--
-    <script type = "text/javascript" src = "{{ STATIC_URL }}javascript/slider.js"></script>
-    <form class = "js-slider-form" name = "slider_form" onsubmit = "return false;">
-        <input type = "text" name = "slider_out" id = "slider-out-1" value = "0">
-        <div id = "slider_1" name = "slider_style" class = "js-slider">
-        <div></div>
-        <input type = "button" name = "slider_button"  value = "">
-        </div>
-        <input type = "text" name = "slider_out" id = "slider-out-2" value = "0">
-        <div id = "slider_2" name = "slider_style" class = "js-slider">
-        <div></div>
-        <input type = "button"  name = "slider_button" value = "">
-        </div>
-
-    </form>
-    -->
         <li style = "float:left;">
             <div id = "canvas" ></div>
         </li>
     </ul>
-    <script src="{{ STATIC_URL }}js/three.min.js"></script>
+    <script src="{{ STATIC_URL }}three/build/three.min.js"></script>
     <script src="{{ STATIC_URL }}three/examples/js/loaders/OBJLoader.js"></script>
     <script src="{{ STATIC_URL }}three/src/loaders/ImageLoader.js"></script>
     <script src="{{ STATIC_URL }}three/src/materials/MeshFaceMaterial.js"></script>
@@ -136,7 +116,7 @@
     var object = new THREE.Mesh();
     var loader = new THREE.OBJLoader();
 
-    loader.load( '{{ STATIC_URL }}Closoid/model2.obj', function ( object ) {
+    loader.load( '{{ STATIC_URL }}OBJfile/model2.obj', function ( object ) {
         scene.add(object);
         object.position.set(-30,0,0);
         object.rotation.y = -0.5/Math.PI;
@@ -148,7 +128,7 @@
         animate();
     });
 
-    loader.load( '{{ STATIC_URL }}Closoid/model2.obj', function ( object ) {
+    loader.load( '{{ STATIC_URL }}OBJfile/model2.obj', function ( object ) {
         scene.add(object);
         object.position.set(30,0,0);
         object.rotation.y = 0.5/Math.PI;
