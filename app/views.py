@@ -1,10 +1,11 @@
 # -*- coding: utf-8 -*- vim: set et ts=4 sw=4 :
+from django.http import HttpResponse
 from django.shortcuts import render
 from django.views.generic import TemplateView
 from django.http import HttpResponseRedirect
 from django.core.urlresolvers import reverse
 import os
-from app.utils import makeobj
+from app.utils.Cylinder import makeobj
 
 class MainView(TemplateView):
     template_name = "index.html"
@@ -20,11 +21,11 @@ def update_3D_object(request):
     breast_wide     = 1.0 - float(request.POST.get("breast_wide",0.0))
 
     ret = makeobj.make(wheel_radius,begining_point,begin,point_num,breast_wide)
-    file = open(os.path.join(os.getcwd(),'app/static/Closoid/model2.obj'),'w')
+    file = open(os.path.join(os.getcwd(),'app/static/OBJfile/model2.obj'),'w')
     file.write(ret)
     file.close()
     return HttpResponseRedirect(reverse('index'))
-
+    #return HttpResponse(ret)
 '''
 使ってないクラス
 '''

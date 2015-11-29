@@ -136,7 +136,7 @@
     var object = new THREE.Mesh();
     var loader = new THREE.OBJLoader();
 
-    loader.load( '{{ STATIC_URL }}Closoid/model2.obj', function ( object ) {
+    loader.load( '{{ STATIC_URL }}OBJfile/model2.obj', function ( object ) {
         scene.add(object);
         object.position.set(-30,0,0);
         object.rotation.y = -0.5/Math.PI;
@@ -148,7 +148,7 @@
         animate();
     });
 
-    loader.load( '{{ STATIC_URL }}Closoid/model2.obj', function ( object ) {
+    loader.load( '{{ STATIC_URL }}OBJfile/model2.obj', function ( object ) {
         scene.add(object);
         object.position.set(30,0,0);
         object.rotation.y = 0.5/Math.PI;

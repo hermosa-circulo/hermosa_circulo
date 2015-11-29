@@ -1,5 +1,5 @@
 import math
-from app.utils import Closoid
+from app.utils.Cylinder import Closoid
 def Mapping(c,v):
     for i in range(len(v)):
         for j in range(len(v[0])):
