@@ -2,27 +2,27 @@
 
 {% block extraheader%}
 <link rel="stylesheet" type="text/css" href = "{{ STATIC_URL }}css/ui-slider.css" media="all">
-<script type = "text/javascript" src = "{{ STATIC_URL }}javascript/ui-slider.js"></script>
+<script type = "text/javascript" src = "{{ STATIC_URL }}javascript/ui-slider-blender.js"></script>
 {% endblock %}
 
 {% block content %}
 
 
 
-<form action = "/boobs_designer/update/" method = "post">
+<form action = "/boobs_designer/makeBlender/" method = "post">
 {% csrf_token %}
     <ul>
         <li style = "float:left;">
             <p>おっぱいの大きさ<input type="text"name = "wheel_radius" id = "jquery-ui-slider-value-1"/></p>
             <div id = "jquery-ui-slider-1"></div>
 
-            <p>おっぱいのたれ具合<input type="text" name = "begin" id = "jquery-ui-slider-value-3"/></p>
+            <p>X座標<input type="text" name = "begin" id = "jquery-ui-slider-value-3"/></p>
             <div id = "jquery-ui-slider-3"></div>
 
-            <p>ポリゴンの細かさ<input type="text" name = "point_num" id = "jquery-ui-slider-value-4"/></p>
+            <p>Y座標<input type="text" name = "point_num" id = "jquery-ui-slider-value-4"/></p>
             <div id = "jquery-ui-slider-4"></div>
 
-            <p>おっぱいの長さ<input type="text" name = "breast_wide" id = "jquery-ui-slider-value-5"/></p>
+            <p>Z座標<input type="text" name = "breast_wide" id = "jquery-ui-slider-value-5"/></p>
             <div id = "jquery-ui-slider-5"></div>
 
             <p style = "visibility: hidden;">begining_point<input type="text"name = "begining_point" id = "jquery-ui-slider-value-2"/></p>
@@ -89,7 +89,7 @@
     var object = new THREE.Mesh();
     var loader = new THREE.OBJLoader();
 
-    loader.load( '{{ STATIC_URL }}OBJfile/boobs_dis.obj', function ( object ) {
+    loader.load( '{{ STATIC_URL }}OBJfile/ex_boobs.obj', function ( object ) {
         scene.add(object);
         object.position.set(0,0,0);
         object.rotation.y = -0.1/Math.PI;

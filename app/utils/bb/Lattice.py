@@ -77,61 +77,16 @@ def createLattice(scene,argvs):
 
 	return lattice_ob
 
-def printOBJ():
-	LOAD10 = "/home/blender/test.obj"
-	name = os.path.basename(LOAD10)
-	realpath = os.path.realpath(os.path.expanduser(LOAD10))
-	fp = open(realpath,'w')
-	me = bpy.data.objects["Default"].data
-	for v in me.vertices:
-		fp.write("v %.5f %.5f %.5f\n" % (v.co.x,v.co.y,v.co.z))
-	temp_me = me.uv_layers.active.data
-	#for f in temp_me:
-	#	fp.write("vt %.5f %.5f\n" % (f.uv[0],f.uv[1]))
-	if len(me.uv_layers.active.data)>0:
-		#uvtex=me.uv_textures[0]
-		count = 0
-		for f in me.polygons:
-			#data = temp_me[f.index]
-			data = temp_me[count]
-			fp.write("vt %.5f %.5f\n" % (data.uv[0],data.uv[1]))
-			count = count +1
-			data = temp_me[count]
-			fp.write("vt %.5f %.5f\n" % (data.uv[0],data.uv[1]))
-			count = count +1
-			data = temp_me[count]
-			fp.write("vt %.5f %.5f\n" % (data.uv[0],data.uv[1]))
-			count = count +1
-			if len(f.vertices) == 4:
-				data=temp_me[count]
-				fp.write("vt %.5f %.5f\n" % (data.uv[0],data.uv[1]))
-				count = count + 1
-
-		#fp.write("ok %s\n"%(len(temp_me)))
-		#fp.write("count %s"%(count))
-		vt =1
-		for f in me.polygons:
-			vs = f.vertices
-			fp.write("f %d/%d %d/%d %d/%d" % (vs[0]+1,vt,vs[1]+1,vt+1,vs[2]+1,vt+2))
-			vt += 3
-			if len(f.vertices) == 4:
-				fp.write(" %d/%d\n" % (vs[3]+1,vt))
-				vt += 1
-			else:
-				fp.write("\n")
-	fp.close()
-	return 0
-
 
 
 if __name__ == "__main__":
 	argvs = sys.argv
-	LOAD_FILE = os.path.join(os.getcwd(),'boobs_dis.obj')
+	LOAD_FILE = os.path.join(os.getcwd(),'app/static/OBJfile/boobs_dis.obj')
 	delete_all()
 	bpy.ops.import_scene.obj(filepath= LOAD_FILE)
 	scene = bpy.context.scene
 	lat = createLattice(scene,argvs)
-	EXP_FILE = "ex_boobs.obj"
+	EXP_FILE = "app/static/OBJfile/ex_boobs.obj"
 	#printOBJ()
 	savePath = os.path.abspath(os.path.dirname(__file__))
 	bpy.path.relpath(savePath)

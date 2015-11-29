@@ -5,11 +5,17 @@ from django.views.generic import TemplateView
 from django.http import HttpResponseRedirect
 from django.core.urlresolvers import reverse
 import os
+import commands
 from app.utils.Cylinder import makeobj
-
+#from app.utils.bb import Lattice
 class MainView(TemplateView):
     template_name = "index.html"
     def index(request):
+        pass
+
+class Boobs_BlenderView(TemplateView):
+    template_name = "boobs_blender.html"
+    def boobs_blender(request):
         pass
 
 #3Dモデルの更新用
@@ -26,6 +32,21 @@ def update_3D_object(request):
     file.close()
     return HttpResponseRedirect(reverse('index'))
     #return HttpResponse(ret)
+
+def executeBlender(request):
+    wheel_radius    = request.POST.get("wheel_radius",0)
+    begin           = request.POST.get("begin",0)
+    point_num       = request.POST.get("point_num",0)
+    breast_wide     = request.POST.get("breast_wide",0.0)
+    
+    currentdir = os.getcwd()
+    strcommand = "blender --background --python "+currentdir+"/app/utils/bb/Lattice.py "+wheel_radius+" "+begin+" "+point_num+" "+breast_wide
+    check = commands.getoutput(strcommand)
+    
+    #check = commands.getoutput("blender --background --python "check + "app/util/bb/Lattice.py 1 1 1 1")
+    return HttpResponseRedirect(reverse('boobs_blender'))
+ 
+
 '''
 使ってないクラス
 '''
@@ -34,7 +55,3 @@ class IGAView(TemplateView):
     def iga(request):
         pass
 
-class Boobs_BlenderView(TemplateView):
-    template_name = "boobs_blender.html"
-    def boobs_blender(request):
-        pass
