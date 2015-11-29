@@ -1,5 +1,5 @@
 import math
-from app.utils.Cylinder import Vertex
+import Vertex
 def VectorSubstruction(v1,v2):
     ans = [0 for i in range(len(v1))]
     for i in range(len(v1)):
@@ -92,8 +92,8 @@ def make(wheel_radius,begining_point,closoid_number,point_num,breast_wide):
     objfile_str += "vn "+str(vncap[0])+" "+str(vncap[1])+" "+str(vncap[2])+"\n"
     objfile_str += "vn "+str(vncap_first[0])+" "+str(vncap_first[1])+" "+str(vncap_first[2])+"\n"
     for i in f:
-        for j in i:
-            objfile_str += str(j)
+    	for j in i:
+	        objfile_str += str(j)
     objfile_str += fcap
     objfile_str += fcap_first
     '''
@@ -108,8 +108,8 @@ def make(wheel_radius,begining_point,closoid_number,point_num,breast_wide):
     file.write("vn "+str(vncap[0])+" "+str(vncap[1])+" "+str(vncap[2])+"\n")
     file.write("vn "+str(vncap_first[0])+" "+str(vncap_first[1])+" "+str(vncap_first[2])+"\n")
     for i in f:
-        for j in i:
-            file.write(j)
+    	for j in i:
+	        file.write(j)
     file.write(fcap)
     file.write(fcap_first)
     file.close()

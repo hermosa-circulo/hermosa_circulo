@@ -1,10 +1,6 @@
 {% extends "base.html" %}
 
 {% block extraheader%}
-<!--
-<link rel="stylesheet" type="text/css" href = "{{ STATIC_URL }}css/slider.css" media="all">
-<script type = "text/javascript" src = "{{ STATIC_URL }}javascript/test.js"></script>
--->
 <link rel="stylesheet" type="text/css" href = "{{ STATIC_URL }}css/ui-slider.css" media="all">
 <script type = "text/javascript" src = "{{ STATIC_URL }}javascript/ui-slider.js"></script>
 {% endblock %}
@@ -12,32 +8,6 @@
 {% block content %}
 
 
-<!--
-<button onclick = "updateProfile()" type = "button" > Update</button>
-<div id = "myData">oo</div>
-<script type = "text/javascript">
-    function updateProfile(){
-        var xmlhttp;
-        if(window.XMLHttpRequest){
-            xmlhttp = new XMLHttpRequest();
-        }else{
-            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-        }
-
-
-        xmlhttp.onreadystatechange = function(){
-            if(this.readyState != 4){
-                document.getElementById("myData").innerHTML = "<img src = '{{ STATIC_URL }}img/loading.gif' width = '20' height='20' >";
-            }else{
-                document.getElementById("myData").innerHTML = xmlhttp.responseText;
-            }
-        }
-        xmlhttp.open("GET","http://ec2-54-148-249-100.us-west-2.compute.amazonaws.com/mrdoob-three.js/receive.cgi",true);
-        xmlhttp.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
-        xmlhttp.send();
-    }
-</script>
--->
 
 <form action = "/boobs_designer/update/" method = "post">
 {% csrf_token %}
@@ -63,27 +33,11 @@
         </li>
 </form>
 
-    <!--
-    <script type = "text/javascript" src = "{{ STATIC_URL }}javascript/slider.js"></script>
-    <form class = "js-slider-form" name = "slider_form" onsubmit = "return false;">
-        <input type = "text" name = "slider_out" id = "slider-out-1" value = "0">
-        <div id = "slider_1" name = "slider_style" class = "js-slider">
-        <div></div>
-        <input type = "button" name = "slider_button"  value = "">
-        </div>
-        <input type = "text" name = "slider_out" id = "slider-out-2" value = "0">
-        <div id = "slider_2" name = "slider_style" class = "js-slider">
-        <div></div>
-        <input type = "button"  name = "slider_button" value = "">
-        </div>
-
-    </form>
-    -->
         <li style = "float:left;">
             <div id = "canvas" ></div>
         </li>
     </ul>
-    <script src="{{ STATIC_URL }}js/three.min.js"></script>
+    <script src="{{ STATIC_URL }}three/build/three.min.js"></script>
     <script src="{{ STATIC_URL }}three/examples/js/loaders/OBJLoader.js"></script>
     <script src="{{ STATIC_URL }}three/src/loaders/ImageLoader.js"></script>
     <script src="{{ STATIC_URL }}three/src/materials/MeshFaceMaterial.js"></script>
