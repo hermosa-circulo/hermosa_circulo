@@ -117,6 +117,10 @@ httpdを有効化
     $sudo systemctl restart httpd
     $sudo systemctl enable httpd
 
+Blenderで３Ｄモデルを操作するために"blender"をインストールしてください
+
+    $yum install blender
+
 ## Author
 [m-masataka](https://github.com/m-masataka)  
 [bandoshintaro](https://github.com/bandoshintaro)  
