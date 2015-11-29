@@ -1,15 +1,12 @@
 {% extends "base.html" %}
 
 {% block extraheader%}
-<<<<<<< HEAD
-=======
 <!--
 <link rel="stylesheet" type="text/css" href = "{{ STATIC_URL }}css/slider.css" media="all">
-<script type = "text/javascript" src = "{{ STATIC_URL }}js/test.js"></script>
+<script type = "text/javascript" src = "{{ STATIC_URL }}javascript/test.js"></script>
 -->
->>>>>>> 0db24471301dba786f358936912aa4c4cb0e5f2b
 <link rel="stylesheet" type="text/css" href = "{{ STATIC_URL }}css/ui-slider.css" media="all">
-<script type = "text/javascript" src = "{{ STATIC_URL }}js/ui-slider.js"></script>
+<script type = "text/javascript" src = "{{ STATIC_URL }}javascript/ui-slider.js"></script>
 {% endblock %}
 
 {% block content %}
@@ -42,7 +39,7 @@
 </script>
 -->
 
-<form action = {% url 'update' %} method = "post">
+<form action = "/boobs_designer/update/" method = "post">
 {% csrf_token %}
     <ul>
         <li style = "float:left;">
@@ -66,10 +63,8 @@
         </li>
 </form>
 
-<<<<<<< HEAD
-=======
     <!--
-    <script type = "text/javascript" src = "{{ STATIC_URL }}js/slider.js"></script>
+    <script type = "text/javascript" src = "{{ STATIC_URL }}javascript/slider.js"></script>
     <form class = "js-slider-form" name = "slider_form" onsubmit = "return false;">
         <input type = "text" name = "slider_out" id = "slider-out-1" value = "0">
         <div id = "slider_1" name = "slider_style" class = "js-slider">
@@ -84,12 +79,11 @@
 
     </form>
     -->
->>>>>>> 0db24471301dba786f358936912aa4c4cb0e5f2b
         <li style = "float:left;">
             <div id = "canvas" ></div>
         </li>
     </ul>
-    <script src="{{ STATIC_URL }}three/build/three.min.js"></script>
+    <script src="{{ STATIC_URL }}js/three.min.js"></script>
     <script src="{{ STATIC_URL }}three/examples/js/loaders/OBJLoader.js"></script>
     <script src="{{ STATIC_URL }}three/src/loaders/ImageLoader.js"></script>
     <script src="{{ STATIC_URL }}three/src/materials/MeshFaceMaterial.js"></script>
@@ -142,11 +136,7 @@
     var object = new THREE.Mesh();
     var loader = new THREE.OBJLoader();
 
-<<<<<<< HEAD
-    loader.load( '{{ STATIC_URL }}OBJfile/model2.obj', function ( object ) {
-=======
-    loader.load( '{{ STATIC_URL }}model2.obj', function ( object ) {
->>>>>>> 0db24471301dba786f358936912aa4c4cb0e5f2b
+    loader.load( '{{ STATIC_URL }}Closoid/model2.obj', function ( object ) {
         scene.add(object);
         object.position.set(-30,0,0);
         object.rotation.y = -0.5/Math.PI;
@@ -158,11 +148,7 @@
         animate();
     });
 
-<<<<<<< HEAD
-    loader.load( '{{ STATIC_URL }}OBJfile/model2.obj', function ( object ) {
-=======
-    loader.load( '{{ STATIC_URL }}model2.obj', function ( object ) {
->>>>>>> 0db24471301dba786f358936912aa4c4cb0e5f2b
+    loader.load( '{{ STATIC_URL }}Closoid/model2.obj', function ( object ) {
         scene.add(object);
         object.position.set(30,0,0);
         object.rotation.y = 0.5/Math.PI;
