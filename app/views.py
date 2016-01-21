@@ -20,7 +20,7 @@ class Boobs_BlenderView(TemplateView):
 
 #3Dモデルの更新用
 def update_3D_object(request):
-    wheel_radius    =int(request.POST.get("wheel_radius",0))
+    wheel_radius    = int(request.POST.get("wheel_radius",0))
     begining_point  = int(request.POST.get("begining_point",0))
     begin           = 100 - int(request.POST.get("begin",0))
     point_num       = int(request.POST.get("point_num",0))
@@ -45,7 +45,6 @@ def executeBlender(request):
 
     #check = commands.getoutput("blender --background --python "check + "app/util/bb/Lattice.py 1 1 1 1")
     return HttpResponseRedirect(reverse('boobs_blender'))
-
 
 '''
 使ってないクラス
