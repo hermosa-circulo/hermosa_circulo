@@ -46,7 +46,6 @@ def executeBlender(request):
     #check = commands.getoutput("blender --background --python "check + "app/util/bb/Lattice.py 1 1 1 1")
     return HttpResponseRedirect(reverse('boobs_blender'))
 
-
 '''
 使ってないクラス
 '''
