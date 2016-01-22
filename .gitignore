@@ -1,6 +1,7 @@
 *~
 *.swp
 app/__pycache__
+app/migraions
 app/**/__pycache__
 oppai_iga/**/__pycache__
 app/*.pyc
