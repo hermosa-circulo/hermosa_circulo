@@ -65,7 +65,7 @@ def pullV(V,point_num):
             print "nn %s"%(nn)
             for j in range(nn):
                 vs.append(sum)
-                ss = ss*0.9
+                ss *= 0.9
                 sum =sum +ss
             bb = dd/sum
             print vs

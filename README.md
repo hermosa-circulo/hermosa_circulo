@@ -9,27 +9,16 @@
 djangoを使って書いてます([使いかた](http://docs.djangoproject.jp/en/latest/intro/tutorial01.html))  
 
 ## フォルダ構成
-###app
-webアプリ本体  
-####/views.py
-httpリクエストを受けてレスポンスを返す処理を書くファイル  
-####/utils
-3Dモデリングの更新に使っている関数をとりあえずこの中に入れた  
-####/templates
-webアプリで使うhtmlテンプレート  
-####/static
-webアプリで使う静的ファイル  
-###oppai_iga
-
-djangoプロジェクト全体の設定ファイルがおいてある  
-###templates
-
-djangoプロジェクト全体で使うhtmlテンプレート  
-###static
-
-djangoプロジェクト全体で使う静的ファイル  
+- app webアプリ本体  
+    - /views.py  httpリクエストを受けてレスポンスを返す処理を書くファイル  
+    - /utils  3Dモデリングの更新に使っている関数をとりあえずこの中に入れた  
+    - /templates  webアプリで使うhtmlテンプレート  
+    - /static  webアプリで使う静的ファイル  
+- oppai_iga django  プロジェクト全体の設定ファイルがおいてある  
+- templates django  プロジェクト全体で使うhtmlテンプレート  
+- static django  プロジェクト全体で使う静的ファイル  
 ## Requirement
-    python 2.7 or 3.4  
+    python 2.7  
 ## How to Use(local)
     $git clone https://github.com/m-masataka/oppai_iga.git  
     $cd oppai_iga  
@@ -39,6 +28,10 @@ djangoプロジェクト全体で使う静的ファイル
 Now, you can access [http://localhost:8000/boobs_designer/](http://localhost:8000/boobs_designer/)  
 ## How to Deploy
 Centos7を前提としたコマンド
+
+言語設定
+
+    $sudo localectl set-locale LANG=ja_JP.UTF-8
 
 必要なライブラリをインストール  
 

@@ -11,3 +11,4 @@ oppai_iga/**/*.pyc
 db.sqlite3
 .DS_Store
 .git
+.vagrant
