@@ -4,6 +4,9 @@
 #Overview  
 男達はグランドラインを目指し、夢を追い続ける。世は正に大海賊時代！  
 
+## Sample URL
+[http://ec2-54-148-249-100.us-west-2.compute.amazonaws.com:8080/boobs_designer/]
+
 ## Description
 3DモデルをIGAで最適化  
 djangoを使って書いてます([使いかた](http://docs.djangoproject.jp/en/latest/intro/tutorial01.html))  
