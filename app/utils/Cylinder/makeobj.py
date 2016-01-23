@@ -46,7 +46,10 @@ def returnF(v,vn):
     return f
 
 def CapV(v,jud):
-    point = 0 if jud == 0 else len(v)-1
+    if jud == 0:
+	point = 0
+     else:
+	point =  len(v)-1
 
     a = VectorSubstruction(v[point][0],v[point][1])
     b = VectorSubstruction(v[point][0],v[point][2])

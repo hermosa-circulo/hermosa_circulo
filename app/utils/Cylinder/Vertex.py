@@ -80,7 +80,10 @@ def pullV(V,point_num):
     return V
 def makeR(x,r,p):
     x = x*p
-    y  = math.sqrt(math.pow(r,2) - math.pow(x,2)) if r > x: else 0.5
+    if r > x:
+    	y  = math.sqrt(math.pow(r,2) - math.pow(x,2))
+    else: 
+	y = 0.5
     return y
 
 def makeV(wheel_radius,begining_point,begin,point_num,breast_wide):
