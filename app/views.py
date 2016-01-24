@@ -38,11 +38,10 @@ def executeBlender(request):
     point_num       = request.POST.get("point_num",0)
     breast_wide     = request.POST.get("breast_wide",0.0)
 
-    currentdir = os.getcwd()
-    strcommand = "blender --background --python %s /app/utils/bb/Lattice.py %s %s %s"%(currentdir, wheel_radius, begin,point_num, breast_wide)
+    currentdir = str(os.getcwd())
+    strcommand = "blender --background --python "+currentdir+"/app/utils/bb/Lattice.py "+wheel_radius+" "+begin+" "+point_num+" "+breast_wide
     check = commands.getoutput(strcommand)
 
-    #check = commands.getoutput("blender --background --python "check + "app/util/bb/Lattice.py 1 1 1 1")
     return HttpResponseRedirect(reverse('boobs_blender'))
 
 '''
