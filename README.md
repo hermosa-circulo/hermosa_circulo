@@ -26,12 +26,22 @@ djangoを使って書いてます([使いかた](http://docs.djangoproject.jp/en
     python 2.7  
 
 ## How to Use(local)
+開発用WEBサーバを立てる
+
     $git clone https://github.com/m-masataka/oppai_iga.git  
     $cd oppai_iga  
     $pip install -r requirements.txt  
     $python manage.py migrate  
     $python manage.py runserver  
 Now, you can access [http://localhost:8000/boobs_designer/](http://localhost:8000/boobs_designer/)  
+
+## How to Deploy
+vagrantを使ってローカルにVMを立ててデプロイする
+
+    $git clone https://github.com/m-masataka/oppai_iga.git  
+    $cd oppai_iga  
+    $vagrant up
+
 
 ## Slack  
 
