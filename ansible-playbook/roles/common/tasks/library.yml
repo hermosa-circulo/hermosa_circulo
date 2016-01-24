@@ -1,0 +1,23 @@
+---
+
+ - name: yum install
+   yum: name={{ item }} state=installed
+   with_items:
+       - epel-release
+       - python-devel
+       - httpd-devel
+       - sqlite3
+       - sqlite-devel
+       - git
+       - httpd
+       - httpd-devel
+       - mod_wsgi
+
+ - name: yum groupinstall
+   yum: name="@Development tools" state=installed
+
+ - name: upgrade all packages
+   yum: name=* state=latest
+
+ - name: install pip
+   yum: name=python-pip state=installed
