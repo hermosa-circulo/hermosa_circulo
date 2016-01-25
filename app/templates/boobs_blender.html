@@ -65,14 +65,14 @@
     //trackball.staticMoving = true;
     //trackball.dynamicDampingFactor = 0.3;
     light = new THREE.DirectionalLight( 0xffcc66 ,1.3);
-    light.position.set( -100, -100, -100 );
+    light.position.set( 100, 100, 100 );
     scene.add( light );
 
     light2 = new THREE.DirectionalLight( 0x996600 );
-    light2.position.set( 100, 100, 21 );
+    light2.position.set( -100, 100, 21 );
     scene.add( light2 );
     /*
-    light3 = new THREE.DirectionalLight( 0x002288 );
+	light3 = new THREE.DirectionalLight( 0x002288 );
     light3.position.set( 25, 10, 100 );
     scene.add( light3 );
     light4 = new THREE.DirectionalLight( 0x002288 );
@@ -82,9 +82,9 @@
     light5 = new THREE.DirectionalLight( 0x002288 );
     light5.position.set( 25, -10, -100 );
     scene.add( light5 );
-    */
     light = new THREE.AmbientLight( 0x222222 );
     scene.add( light );
+	*/
 
     var object = new THREE.Mesh();
     var loader = new THREE.OBJLoader();
@@ -92,7 +92,7 @@
     loader.load( '{{ STATIC_URL }}OBJfile/ex_boobs.obj', function ( object ) {
         scene.add(object);
         object.position.set(0,0,0);
-        object.rotation.y = -0.1/Math.PI;
+        object.rotation.y = -0.8;
         if (mesh.geometry.animation.name) {
             THREE.AnimationHandler.add(mesh.animation);
             animation = new THREE.Animation(mesh, mesh.animation.name, THREE.AnimationHandler.CATMULLROM);

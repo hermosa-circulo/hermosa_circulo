@@ -31,10 +31,10 @@ def createLattice(scene,argvs):
 	lattice.points_v =2
 	lattice.points_w =2
 	s = 0.5
-	s2 = float(argvs[4])
-	s_z = float(argvs[5])
-	s_y = float(argvs[6])
-	s_x = float(argvs[7])
+	s2 = float(argvs[6])
+	s_z = float(argvs[7])
+	s_y = float(argvs[8])
+	s_x = float(argvs[9])
 	points = [
 		(-s,-s,-s),(s2+s_x,-s2+s_y,-s2+s_z),(-s,s,-s),(s2+s_x,s2+s_y,-s2+s_z),
 		(-s,-s,s),(s2+s_x,-s2+s_y,s2+s_z),(-s,s,s),(s2+s_x,s2+s_y,s2+s_z)
@@ -69,7 +69,7 @@ def createLattice(scene,argvs):
 		(-s,-s,s),(s2+s_x,-s2-s_y,s2+s_z),(-s,s,s),(s2+s_x,s2-s_y,s2+s_z)
 	]
 	bpy.context.scene.update()
-	bpy.ops.object.mode_set(mode='EDIT')
+
 	for n,pt in enumerate(lattice_2.points):
 		for k in range(3):
 			pt.co_deform[k] = points[n][k]
@@ -81,11 +81,21 @@ def createLattice(scene,argvs):
 
 if __name__ == "__main__":
 	argvs = sys.argv
-	LOAD_FILE = os.path.join(os.getcwd(),'app/static/OBJfile/boobs_dis.obj')
+	LOAD_FILE = os.path.join(os.getcwd(),'app/static/OBJfile/boobs_flat.obj')
 	delete_all()
 	bpy.ops.import_scene.obj(filepath= LOAD_FILE)
 	scene = bpy.context.scene
 	lat = createLattice(scene,argvs)
+	
+	bpy.context.scene.objects.active = bpy.data.objects["Default"]
+	bpy.ops.object.mode_set(mode='EDIT')
+	#bpy.context.scene.update()
+	'''	
+	bpy.ops.mesh.mark_sharp()
+	for i in range(10):
+		bpy.ops.mesh.vertices_smooth()
+	bpy.ops.object.mode_set(mode='OBJECT')
+	'''
 	EXP_FILE = "app/static/OBJfile/ex_boobs.obj"
 	#printOBJ()
 	savePath = os.path.abspath(os.path.dirname(__file__))
