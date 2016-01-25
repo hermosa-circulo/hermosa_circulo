@@ -1,0 +1,28 @@
+LoadModule wsgi_module modules/mod_wsgi.so
+
+WSGIScriptAlias / /var/service/oppai_iga/oppai_iga/wsgi.py
+WSGIDaemonProcess oppai_iga user=apache group=apache python-path=/var/service/oppai_iga:/usr/lib/python2.7/site-packages
+WSGIProcessGroup oppai_iga
+WSGISocketPrefix run/wsgi
+Alias /static/ /var/service/oppai_iga/static/
+
+<Directory /var/service/oppai_iga/oppai_iga>
+    <Files wsgi.py>
+        <IfVersion < 2.4>
+            Allow from all
+        </IfVersion>
+        <IfVersion >= 2.4>
+            Require all granted
+        </IfVersion>
+    </Files>
+</Directory>
+
+<Directory /var/service/oppai_iga/static>
+    <IfVersion < 2.4>
+        Allow from all
+    </IfVersion>
+    <IfVersion >= 2.4>
+        Require all granted
+    </IfVersion>
+</Directory>
+_EOT_"
