@@ -1,12 +1,13 @@
 ---
+ - name: add packages
+   yum: name=epel-release state=installed
 
  - name: yum install
    yum: name={{ item }} state=installed
    with_items:
-       - epel-release
        - python-devel
        - httpd-devel
-       - sqlite3
+       - sqlite
        - sqlite-devel
        - git
        - httpd

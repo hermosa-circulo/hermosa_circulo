@@ -9,6 +9,8 @@ app/**/*.pyc
 app/**/**/*.pyc
 oppai_iga/**/*.pyc
 db.sqlite3
+ssh_config
+ansible-playbook/ssh_config
 .DS_Store
 .git
 .vagrant

@@ -41,7 +41,11 @@ vagrantを使ってローカルにVMを立ててデプロイする
     $git clone https://github.com/m-masataka/oppai_iga.git  
     $cd oppai_iga  
     $vagrant up
+    $cd ansible-playbook
+    $vagrant ssh-config > ssh_config
+    $ansible-playbook deploy.yml
 
+Now, you can access [http://192.168.108.108/boobs_designer/](http://192.168.108.108/boobs_designer/)  
 
 ## Slack  
 
