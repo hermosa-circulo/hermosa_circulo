@@ -16,7 +16,7 @@
 
  - name: collect static files
    shell: >
-       yes '' | ./manage.py collectstatic
+       echo yes | ./manage.py collectstatic
        chdir={{deploy_dir}}/oppai_iga
        creates={{deploy_dir}}/oppai_iga/static/css
 
