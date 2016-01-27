@@ -7,12 +7,18 @@
    file: path={{deploy_dir}} state=directory  owner=apache
 
  - name: deploy application
-   git: repo=https://github.com/m-masataka/oppai_iga dest={{deploy_dir}}/oppai_iga
+   git: repo=https://github.com/m-masataka/oppai_iga dest={{deploy_dir}}/oppai_iga force=yes
    notify: restart httpd
 
  - name: pip install python libraries
    pip: requirements={{deploy_dir}}/oppai_iga/requirements.txt
    notify: restart httpd
+
+ - name: collect static files
+   shell: >
+       yes '' | ./manage.py collectstatic
+       chdir={{deploy_dir}}/oppai_iga
+       creates={{deploy_dir}}/oppai_iga/static/css
 
  - name: httpd enable
    service: name=httpd enabled=yes state=started
