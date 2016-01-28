@@ -18,9 +18,9 @@ djangoを使って書いてます([使いかた](http://docs.djangoproject.jp/en
     - /utils  3Dモデリングの更新に使っている関数をとりあえずこの中に入れた  
     - /templates  webアプリで使うhtmlテンプレート  
     - /static  webアプリで使う静的ファイル  
-- oppai_iga django  プロジェクト全体の設定ファイルがおいてある  
-- templates django  プロジェクト全体で使うhtmlテンプレート  
-- static django  プロジェクト全体で使う静的ファイル  
+- oppai_iga  djangoプロジェクト全体の設定ファイルがおいてある  
+- templates  djangoプロジェクト全体で使うhtmlテンプレート  
+- static  djangoプロジェクト全体で使う静的ファイル  
 
 ## Requirement
     python 2.7  
@@ -33,6 +33,7 @@ djangoを使って書いてます([使いかた](http://docs.djangoproject.jp/en
     $pip install -r requirements.txt  
     $python manage.py migrate  
     $python manage.py runserver  
+
 Now, you can access [http://localhost:8000/boobs_designer/](http://localhost:8000/boobs_designer/)  
 
 ## How to Deploy
@@ -45,7 +46,7 @@ vagrantを使ってローカルにVMを立ててデプロイする
     $vagrant ssh-config > ssh_config
     $ansible-playbook deploy.yml
 
-Now, you can access [http://192.168.108.108/boobs_designer/](http://192.168.108.108/boobs_designer/)  
+Now, you can access [http://192.168.108.108/boobs_designer/](http://192.168.108.108/boobs_designer/)
 
 ## Slack  
 
