@@ -6,6 +6,7 @@ from django.http import HttpResponseRedirect
 from django.core.urlresolvers import reverse
 import os
 import commands
+import random
 from app.utils.Cylinder import makeobj
 #from app.utils.bb import Lattice
 class MainView(TemplateView):
@@ -17,6 +18,11 @@ class Boobs_BlenderView(TemplateView):
     template_name = "boobs_blender.html"
     def boobs_blender(request):
         pass
+
+class IGAView(TemplateView):
+	template_name = "IGA.html"
+	def IGA(request):
+		pass
 
 #3Dモデルの更新用
 def update_3D_object(request):
@@ -44,10 +50,24 @@ def executeBlender(request):
 
     return HttpResponseRedirect(reverse('boobs_blender'))
 
-'''
-使ってないクラス
-'''
-class IGAView(TemplateView):
-    template_name = "iga.html"
-    def iga(request):
-        pass
+def executeIGA(request):
+	file_num = 3
+	para_num = 5
+	parameter=[[0 for i in range(para_num)] for j in range(file_num)]
+	for i in range(len(parameter)):
+		for j in range(len(parameter[0])):
+			if j == 1:
+				parameter[i][j] = 10
+			elif j == 3:
+				parameter[i][j] = 30
+			elif j == 4:
+				parameter[i][j] = random.uniform(0.15,0.6)
+			else:
+				parameter[i][j] = random.randint(30,70)
+	
+	for i in range(len(parameter)):
+		ret = makeobj.make(parameter[i][0],parameter[i][1],parameter[i][2],parameter[i][3],parameter[i][4])
+		file = open(os.path.join(os.getcwd(),'app/static/OBJfile/iga/iga'+str(i)+'.obj'),'w')
+		file.write(ret)
+		file.close()
+	return HttpResponseRedirect(reverse('IGA'))
