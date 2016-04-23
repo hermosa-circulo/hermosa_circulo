@@ -1,9 +1,0 @@
----
-
- - name: deploy oppai_iga
-   sudo: yes
-   hosts: all
-   roles:
-       - common
-   vars_files:
-       - vars/all.yml

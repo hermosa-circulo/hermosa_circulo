@@ -1,4 +1,0 @@
----
- - include: library.yml
- - include: mod_wsgi.yml
- - include: firewalld.yml

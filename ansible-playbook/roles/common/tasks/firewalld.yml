@@ -1,9 +1,0 @@
----
-
- - name: enable https
-   firewalld: service=https permanent=true state=enabled
-   notify: restart firewalld
-
- - name: enable http
-   firewalld: service=http permanent=true state=enabled
-   notify: restart firewalld
