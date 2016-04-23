@@ -37,20 +37,12 @@ djangoを使って書いてます([使いかた](http://docs.djangoproject.jp/en
 Now, you can access [http://localhost:8000/boobs_designer/](http://localhost:8000/boobs_designer/)  
 
 ## How to Deploy
-vagrantを使ってローカルにVMを立ててデプロイする
+dockerImageを作って起動する
 
     $git clone https://github.com/m-masataka/oppai_iga.git  
     $cd oppai_iga  
-    $vagrant up
-    $cd ansible-playbook
-    $vagrant ssh-config > ssh_config
-    $ansible-playbook deploy.yml
-
-Now, you can access [http://192.168.108.108/boobs_designer/](http://192.168.108.108/boobs_designer/)
-
-## Slack  
-
- - #general on <https://oppaiiga.slack.com>
+    $docker build -t user/opiga ./
+    $docker run -itd -p 8000:8000 -t user/opiga
 
 ## Author
 [m-masataka](https://github.com/m-masataka)  
