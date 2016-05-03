@@ -1,5 +1,6 @@
 *~
 *.swp
+app.db
 app/__pycache__
 app/migraions
 app/**/__pycache__

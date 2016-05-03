@@ -1,4 +1,4 @@
-import os 
+import os
 a = 0
 Load = "ok"
 while a==0:

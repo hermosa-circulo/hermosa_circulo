@@ -9,6 +9,7 @@ import commands
 import random
 from app.utils.Cylinder import makeobj
 #from app.utils.bb import Lattice
+
 class MainView(TemplateView):
     template_name = "index.html"
     def index(request):
@@ -24,8 +25,10 @@ class IGAView(TemplateView):
 	def IGA(request):
 		pass
 
-#3Dモデルの更新用
 def update_3D_object(request):
+    '''
+    3Dモデルの更新用
+    '''
     wheel_radius    = int(request.POST.get("wheel_radius",0))
     begining_point  = int(request.POST.get("begining_point",0))
     begin           = 100 - int(request.POST.get("begin",0))
@@ -64,7 +67,7 @@ def executeIGA(request):
 				parameter[i][j] = random.uniform(0.15,0.6)
 			else:
 				parameter[i][j] = random.randint(30,70)
-	
+
 	for i in range(len(parameter)):
 		ret = makeobj.make(parameter[i][0],parameter[i][1],parameter[i][2],parameter[i][3],parameter[i][4])
 		file = open(os.path.join(os.getcwd(),'app/static/OBJfile/iga/iga'+str(i)+'.obj'),'w')
