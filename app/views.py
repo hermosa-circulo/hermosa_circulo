@@ -11,23 +11,32 @@ from app.utils.Cylinder import makeobj
 #from app.utils.bb import Lattice
 
 class MainView(TemplateView):
+    '''
+    タイトルページ
+    '''
     template_name = "index.html"
     def index(request):
         pass
 
 class Boobs_BlenderView(TemplateView):
+    '''
+    Blenderのページ
+    '''
     template_name = "boobs_blender.html"
     def boobs_blender(request):
         pass
 
 class IGAView(TemplateView):
+    '''
+    IGAを進めるページ
+    '''
 	template_name = "IGA.html"
 	def IGA(request):
 		pass
 
 def update_3D_object(request):
     '''
-    3Dモデルの更新用
+    3Dモデルの更新をするページ
     '''
     wheel_radius    = int(request.POST.get("wheel_radius",0))
     begining_point  = int(request.POST.get("begining_point",0))
@@ -42,6 +51,9 @@ def update_3D_object(request):
     #return HttpResponse(ret)
 
 def executeBlender(request):
+    '''
+    Blenderによる3Dモデルの更新をするページ
+    '''
     wheel_radius    = request.POST.get("wheel_radius",0)
     begin           = request.POST.get("begin",0)
     point_num       = request.POST.get("point_num",0)
@@ -54,6 +66,10 @@ def executeBlender(request):
     return HttpResponseRedirect(reverse('boobs_blender'))
 
 def executeIGA(request):
+
+    '''
+    IGAによる個体の最適化をするページ
+    '''
 	file_num = 3
 	para_num = 5
 	parameter=[[0 for i in range(para_num)] for j in range(file_num)]
