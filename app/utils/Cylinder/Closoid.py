@@ -2,8 +2,12 @@ import sys
 import math
 
 def Kai(x):
-    if x ==0: return 1
-    value = 1 if x == 1 else x * Kai(x-1)
+    if x == 0:
+        return 1
+    if x == 1:
+        value = 1
+    else:
+        x * Kai(x-1)
     return value
 
 def Closoid(tau):
