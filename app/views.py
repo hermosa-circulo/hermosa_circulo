@@ -26,11 +26,11 @@ class Boobs_BlenderView(TemplateView):
     def boobs_blender(request):
         pass
 
-class IGAView(TemplateView):
+class latticeView(TemplateView):
     '''
-    IGAを進めるページ
+    latticeのページ
     '''
-    template_name = "IGA.html"
+    template_name = "lattice.html"
     def IGA(request):
         pass
 
