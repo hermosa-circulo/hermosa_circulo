@@ -44,7 +44,7 @@ def update_3D_object(request):
     point_num       = int(request.POST.get("point_num",0))
     breast_wide     = 1.0 - float(request.POST.get("breast_wide",0.0))
     ret = makeobj.make(wheel_radius,begining_point,begin,point_num,breast_wide)
-    file = open(os.path.join(os.getcwd(),'app/static/OBJfile/model2.obj'),'w')
+    file = open(os.path.join(os.getcwd(),'static/OBJfile/model2.obj'),'w')
     file.write(ret)
     file.close()
     return HttpResponseRedirect(reverse('index'))

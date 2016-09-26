@@ -1,14 +1,13 @@
 import sys
 import math
 
-def Kai(x):
-    if x == 0:
+def Kai(n):
+    if n == 0:
         return 1
-    if x == 1:
-        value = 1
     else:
-        x * Kai(x-1)
-    return value
+        m = n
+        n -= 1
+        return m * Kai(n)
 
 def Closoid(tau):
     A = k = 1
