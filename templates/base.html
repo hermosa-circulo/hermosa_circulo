@@ -4,11 +4,6 @@
         <meta charset="UTF-8">
         <meta http-equiv = "Pragma" content = "no-cache">
         <meta http-equiv = "Cache-Control" content ="no-cache">
-        <!--<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
-        <link type="text/css" rel = "stylesheet" href = "http://code.jquery.com/ui/1.10.3/themes/cupertino/jquery-ui.min.css"/>
-        <script type= "text/javascript" src = "http://code.jquery.com/jquery-1.9.1.min.js"></script>
-        <script type = "text/javascript" src = "http://code.jquery.com/ui/1.10.3/jquery-ui.min.js"></script>-->
-        <script src = "//prototypejs.org/assets/2007/1/18/prototype.js"></script>
         <link type = "text/css" rel = "stylesheet" href = "//ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/themes/cupertino/jquery-ui.min.css"/>
         <script src = "//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
         <script src = "//ajax.googleapis.com/ajax/libs/jqueryui/1.11.0/jquery-ui.min.js"></script>
@@ -20,25 +15,20 @@
         {% endblock %}
     </head>
 <body>
-    <!-- Header-->
-    <div class ="jumbotron">
-        <div class = "container">
-            <h1>Boobs Designer</h1>
-            <p>適当なパラメータを選んでSUBMITボタンを押してね</p>
-        </div>
-    </div>
     <!-- Navigation var -->
-    <nav class = "navbar navbar-inverse navbar-fixed-top">
-        <div class = "navbar-header">
-            <a class = "navbar-brand" href ="#"><img src="{{ STATIC_URL }}img/Breast.png" width = "40" height = "40" ></a>
-        </div>
-        <div id = "nav-content" class = "collapse navbar-collapse">
-            <ul class = "nav navbar-nav">
-                <li><a href = "{% url 'index' %}">Closoid</a></li>
-                <li><a href = "{% url 'boobs_blender' %}">Blender</a></li>
-                <li><a href = "{% url 'IGA' %}">IGA</a></li>
+    <nav class="navbar navbar-light bg-faded" style="background-color: #e3f2fd;">
+        <a class="navbar-brand" href="#">Boobs Designer</a>
+            <ul class="nav navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link" href = "{% url 'index' %}">Closoid</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href = "{% url 'boobs_blender' %}">Blender</a>
+                </li>
+                <li class="nav-item">
+                    <a href = "{% url 'IGA' %}">IGA</a>
+                </li>
             </ul>
-        </div>
     </nav>
     {% block content %}
     {% endblock %}
