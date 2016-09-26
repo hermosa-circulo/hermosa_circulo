@@ -30,9 +30,9 @@ class IGAView(TemplateView):
     '''
     IGAを進めるページ
     '''
-	template_name = "IGA.html"
-	def IGA(request):
-		pass
+    template_name = "IGA.html"
+    def IGA(request):
+        pass
 
 def update_3D_object(request):
     '''
@@ -66,27 +66,26 @@ def executeBlender(request):
     return HttpResponseRedirect(reverse('boobs_blender'))
 
 def executeIGA(request):
-
     '''
     IGAによる個体の最適化をするページ
     '''
-	file_num = 3
-	para_num = 5
-	parameter=[[0 for i in range(para_num)] for j in range(file_num)]
-	for i in range(len(parameter)):
-		for j in range(len(parameter[0])):
-			if j == 1:
-				parameter[i][j] = 10
-			elif j == 3:
-				parameter[i][j] = 30
-			elif j == 4:
-				parameter[i][j] = random.uniform(0.15,0.6)
-			else:
-				parameter[i][j] = random.randint(30,70)
+    file_num = 3
+    para_num = 5
+    parameter=[[0 for i in range(para_num)] for j in range(file_num)]
+    for i in range(len(parameter)):
+        for j in range(len(parameter[0])):
+            if j == 1:
+                parameter[i][j] = 10
+            elif j == 3:
+                parameter[i][j] = 30
+            elif j == 4:
+                parameter[i][j] = random.uniform(0.15,0.6)
+            else:
+                parameter[i][j] = random.randint(30,70)
 
-	for i in range(len(parameter)):
-		ret = makeobj.make(parameter[i][0],parameter[i][1],parameter[i][2],parameter[i][3],parameter[i][4])
-		file = open(os.path.join(os.getcwd(),'app/static/OBJfile/iga/iga'+str(i)+'.obj'),'w')
-		file.write(ret)
-		file.close()
-	return HttpResponseRedirect(reverse('IGA'))
+    for i in range(len(parameter)):
+        ret = makeobj.make(parameter[i][0],parameter[i][1],parameter[i][2],parameter[i][3],parameter[i][4])
+        file = open(os.path.join(os.getcwd(),'app/static/OBJfile/iga/iga'+str(i)+'.obj'),'w')
+        file.write(ret)
+        file.close()
+    return HttpResponseRedirect(reverse('IGA'))
