@@ -37,11 +37,10 @@
             <div id = "canvas" ></div>
         </li>
     </ul>
-    <script src="{{ STATIC_URL }}three/build/three.min.js"></script>
-    <script src="{{ STATIC_URL }}three/examples/js/loaders/OBJLoader.js"></script>
-    <script src="{{ STATIC_URL }}three/src/loaders/ImageLoader.js"></script>
-    <script src="{{ STATIC_URL }}three/src/materials/MeshFaceMaterial.js"></script>
-    <script src="{{ STATIC_URL }}three/examples/js/controls/TrackballControls.js"></script>
+    <script src="{{ STATIC_URL }}three/three.min.js"></script>
+    <script src="{{ STATIC_URL }}three/OBJLoader.js"></script>
+    <script src="{{ STATIC_URL }}three/ImageLoader.js"></script>
+    <script src="{{ STATIC_URL }}three/TrackballControls.js"></script>
     <script>
     var node = document.getElementById("canvas");
     var renderer = new THREE.WebGLRenderer();
