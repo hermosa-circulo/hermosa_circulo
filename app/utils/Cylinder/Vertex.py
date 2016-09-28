@@ -2,7 +2,6 @@ import math
 import Closoid
 
 def ring(r,point_num,center):
-    def ring(r,point_num,center):
     array_v = []
     theata = 0
     fineness = 20

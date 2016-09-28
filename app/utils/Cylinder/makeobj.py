@@ -67,6 +67,16 @@ def CapF(v,vn,jud):
 def make(wheel_radius,begining_point,closoid_number,point_num,breast_wide):
     #v = [[[0,0,0],[10,0,0],[10,10,0],[0,10,0]],[[0,0,10], [10,0,10],[10,10,10],[0,10,10]]]
     v = Vertex.makeV(wheel_radius,begining_point,closoid_number,point_num,breast_wide)
+    objfile_str = ""
+    for i in range(len(v)):
+        for j in range(len(v[i])):
+            objfile_str += "v "+str(v[i][j][0])+" "+str(v[i][j][1])+" "+str(v[i][j][2])+"\n"
+    for i in range(len(v)-1):
+        for j in range(len(v[i])-1):
+            objfile_str += "f "+str(len(v[i])*i+j+1)+" "+str(len(v[i])*i+j+2)+" "+str(len(v[i])*(i+1)+j+2)+" "+str(len(v[i])*(i+1)+j+1)+"\n"
+    return objfile_str
+ 
+    '''
     center = [0,0,0]
     vn = returnVN(v)
     f = returnF(v,vn)
@@ -91,3 +101,4 @@ def make(wheel_radius,begining_point,closoid_number,point_num,breast_wide):
     objfile_str += fcap
     objfile_str += fcap_first
     return objfile_str
+    '''
