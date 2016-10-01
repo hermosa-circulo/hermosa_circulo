@@ -8,6 +8,7 @@ import os
 import commands
 import random
 from app.utils.Cylinder import makeobj
+from app.utils.lattice import lattice
 #from app.utils.bb import Lattice
 
 class MainView(TemplateView):
@@ -33,6 +34,15 @@ class latticeView(TemplateView):
     template_name = "lattice.html"
     def IGA(request):
         pass
+
+def update_lattice_object(request):
+    '''
+    latticeのモデルを更新
+    '''
+    ret = lattice.Lattice_obj()
+    file = open(os.path.join(os.getcwd(),'static/OBJfile/lattice.obj'),'w')
+    file.write(ret)
+    return HttpResponseRedirect(reverse('lattice'))
 
 def update_3D_object(request):
     '''
