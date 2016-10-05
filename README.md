@@ -5,7 +5,7 @@
 男達はグランドラインを目指し、夢を追い続ける。世は正に大海賊時代！  
 
 ## Sample URL
-[http://ec2-54-148-249-100.us-west-2.compute.amazonaws.com:8080/boobs_designer/]
+[http://ec2-52-198-214-79.ap-northeast-1.compute.amazonaws.com/boobs_designer/]
 
 ## Description
 3DモデルをIGAで最適化  
