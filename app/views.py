@@ -9,6 +9,7 @@ import commands
 import random
 from app.utils.Cylinder import makeobj
 from app.utils.lattice import lattice
+from django.core.files import File
 #from app.utils.bb import Lattice
 
 class MainView(TemplateView):
@@ -39,8 +40,13 @@ def update_lattice_object(request):
     '''
     latticeのモデルを更新
     '''
-    ret = lattice.Lattice_obj()
-    file = open(os.path.join(os.getcwd(),'static/OBJfile/lattice.obj'),'w')
+    to_x = float(request.POST.get("x",0.0))*10
+    to_y = float(request.POST.get("y",0.0))*10
+    to_z = float(request.POST.get("z",0.0))*10
+    ret = lattice.Lattice_obj(to_x, to_y, to_z)
+    module_dir = os.path.dirname(__file__)
+    file_path = os.path.join(module_dir, '../static/OBJfile/lattice.obj')
+    file = open(file_path,'w')
     file.write(ret)
     return HttpResponseRedirect(reverse('lattice'))
 
@@ -54,7 +60,9 @@ def update_3D_object(request):
     point_num       = int(request.POST.get("point_num",0))
     breast_wide     = 1.0 - float(request.POST.get("breast_wide",0.0))
     ret = makeobj.make(wheel_radius,begining_point,begin,point_num,breast_wide)
-    file = open(os.path.join(os.getcwd(),'static/OBJfile/model2.obj'),'w')
+    module_dir = os.path.dirname(__file__)
+    file_path = os.path.join(module_dir, '../static/OBJfile/model2.obj')
+    file = open(file_path,'w')
     file.write(ret)
     file.close()
     return HttpResponseRedirect(reverse('index'))
