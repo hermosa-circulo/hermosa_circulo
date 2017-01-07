@@ -13,6 +13,7 @@ RUN pip install mysqlclient psycopg2 django=="$DJANGO_VERSION"
 
 WORKDIR /usr/src/app
 COPY ./ /usr/src/app/
-RUN pip install -r requirements.txt
+RUN pip install -r requirements.txt \
+	&& python manage.py migrate
 
 CMD python manage.py runserver 0.0.0.0:8000
