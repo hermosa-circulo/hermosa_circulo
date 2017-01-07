@@ -9,7 +9,7 @@
 
 ## Description
 3DモデルをIGAで最適化  
-djangoを使って書いてます([使いかた](http://docs.djangoproject.jp/en/latest/intro/tutorial01.html))  
+djangoを使って書いてます([使いかた](https://docs.djangoproject.com/ja/1.10/)
 
 ## フォルダ構成
 
@@ -17,32 +17,21 @@ djangoを使って書いてます([使いかた](http://docs.djangoproject.jp/en
     - /views.py  httpリクエストを受けてレスポンスを返す処理を書くファイル  
     - /utils  3Dモデリングの更新に使っている関数をとりあえずこの中に入れた  
     - /templates  webアプリで使うhtmlテンプレート  
-    - /static  webアプリで使う静的ファイル  
 - oppai_iga  djangoプロジェクト全体の設定ファイルがおいてある  
 - templates  djangoプロジェクト全体で使うhtmlテンプレート  
 - static  djangoプロジェクト全体で使う静的ファイル  
 
 ## Requirement
     python 2.7  
-
-## How to Use(local)
-開発用WEBサーバを立てる
-
-    $git clone https://github.com/m-masataka/oppai_iga.git  
-    $cd oppai_iga  
-    $pip install -r requirements.txt  
-    $python manage.py migrate  
-    $python manage.py runserver  
-
-Now, you can access [http://localhost:8000/boobs_designer/](http://localhost:8000/boobs_designer/)  
+	Django 1.9
 
 ## How to Deploy
-dockerImageを作って起動する
 
     $git clone https://github.com/m-masataka/oppai_iga.git  
     $cd oppai_iga  
-    $docker build -t user/opiga ./
-    $docker run -itd -p 8000:8000 -t user/opiga
+    $docker-compose up -d
+
+Now, you can access [http://localhost:8000/boobs_designer/](http://localhost:8000/boobs_designer/)  
 
 ## Author
 [m-masataka](https://github.com/m-masataka)  
